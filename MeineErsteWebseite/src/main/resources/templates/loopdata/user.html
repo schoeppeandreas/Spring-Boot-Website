@@ -2,38 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	layout:decorator="layouts/main">
 <head>
-<title>Loop Data - List</title>
+<title>List User</title>
 </head>
 <body>
 	<div layout:fragment="content">
-		<div class="starter-template">
-			<h1>Loop Data - List</h1>
-			<p class="lead">Ausgabe von Array Loops</p>
-			<p>
-				<a href="/">Startseite</a>
-			</p>
-			<br></br>
-		</div>
-
 		<div class="panel panel-default">
 			<div class="panel-heading">List Loop</div>
 			<div class="panel-body">
-				<p>Tabelle Users</p>
+				<p>Tabelle User</p>
 			</div>
 			<table class="table table-striped">
 				<tr>
 					<th>Id</th>
 					<th>Vorname</th>
 					<th>Nachname</th>
-					<th>Action</th>
 				</tr>
-				<tr th:each="user : ${users}">
+				<tr th:each="user : ${user}">
 					<td th:text="${user.id}">1</td>
 					<td th:text="${user.vorname}">Vorname</td>
 					<td th:text="${user.nachname}">Nachname</td>
-					<td><a class="btn btn-default btn-sm" th:href="|@{/loopdata/addItem/}${user.id}|">Edit</a></td>
 				</tr>
 			</table>
+			<div class="panel-footer">
+				<h3><a href="/loopdata/list"> <span	class="glyphicon glyphicon-circle-arrow-left"> </span></a></h3>
+			</div>
 		</div>
 
 	</div>

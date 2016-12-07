@@ -1,20 +1,33 @@
 package de.ans.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Users {
+public class TheUser {
 	
-	private Users(){}
+	private TheUser(){}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long id;
 	private String vorname;
 	private String nachname;
+	
+	@OneToMany(mappedBy="users")
+	private List<UserSkills> skills;
+	
+	public List<UserSkills> getSkills() {
+		return skills;
+	}
+	public void setSkills(List<UserSkills> skills) {
+		this.skills = skills;
+	}
 	public long getId() {
 		return id;
 	}
